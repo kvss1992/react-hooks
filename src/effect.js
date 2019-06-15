@@ -12,9 +12,10 @@ function Counter({ step = 1, initialCount = 0 }) {
   );
   const increment = () => setCount(c => c + step);
 
+  //  Effect deps
   React.useEffect(() => {
     window.localStorage.setItem("count", count);
-  });
+  }, [count]);
   return <button onClick={increment}>{count}</button>;
 }
 
